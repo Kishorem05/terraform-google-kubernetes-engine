@@ -119,6 +119,10 @@ locals {
   cluster_master_auth_list_layer1 = local.cluster_output_master_auth
   cluster_master_auth_list_layer2 = local.cluster_master_auth_list_layer1[0]
   cluster_master_auth_map         = local.cluster_master_auth_list_layer2[0]
+  
+  cluster_master_auth_list_layer1 = local.cluster_output_master_auth
+  cluster_master_auth_list_layer2 = local.cluster_master_auth_list_layer1[0]
+  cluster_master_auth_map         = local.cluster_master_auth_list_layer2[0]
 
   cluster_location = google_container_cluster.primary.location
   cluster_region   = var.regional ? var.region : join("-", slice(split("-", local.cluster_location), 0, 2))
